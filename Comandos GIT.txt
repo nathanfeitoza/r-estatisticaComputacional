@@ -1,0 +1,88 @@
+git config --global user.name "Nathan Feitoza"  // Configuração do usuário, definindo o nome do usuário (user name)
+
+git config --global user.email "nathan.henrique@souunit.com.br" // Configurar Email
+
+git config --global core.editor /opt/sublime_text/sublime_text // Definir o editor do GIT para mensagens de commit e etc
+
+git config user.name // Retorna quem é o UserName
+git config user.email // Retorna o email
+git config core.editor // Retorna o editor
+git config --list // Traz todas as informações
+
+git init // Para inicializar o diretório Git
+
+git status // Serve para indicar como está o repositório neste momento
+
+git add <Arquivo|Diretorio> // Para adicionar um arquivo ou diretório ao sistema GIT
+git add . // Para adicionar todos os arquivos
+git commit -m "<mensagem do commit>" // Para fazer um commit
+
+git log // Traz informações sobre commits e outras coisas
+git log --decorate // Mostra informações mais detalhadas sobre os branches, merches utilizados
+git log --author="Nathan" // Traz as modificações feitas pelo nome do Autor
+git shortlog // Mostra informações de quem foram os autores, quais e a quantidade de commits que fizeram
+git shortlog -sn // Quantidade de commits e o nome da pessoa que fez
+git log --graph // mostra o que tá acontecendo com os merges e outra coisas
+
+git show <hash> // Mostra o que foi modificado no commit
+
+git diff // Mostram as modificações antes de serem comitadas
+git diff --name-only // Diz somente o nome do arquivo que foi modificado
+git checkout <Arquivo> // Retorna o arquivo para antes da edição
+git reset HEAD <Arquivo> // Tira da fila de prontos para serem comitadas
+git commit -am "<Mensagem>" // Comita todos os arquivos modificados, bem como já os adiciona
+
+git reset --soft <hash> // Mata o úlltimo commit, mas o arquivo fica com o status de pronto para commit
+git reset --mixed <hash> // O mesmo que --reset, mas o arquivo fica modificado porém não pronto para o commit
+git reset --hard <hash> // Mata todo o commit e as modificações do arquivo
+ /* Lembrando que é necessário pegar a hash do último commit antes do que se quer voltar */
+
+
+git remote add origin <endereco_do_repositorio> // Adicionar repositório github
+
+git remote // Informação do repositório
+git remote -v // Mais informações sobre o repositório
+
+sudo git push -u origin <nome_do_branch> // Para fazer um push ao Github
+
+git clone <link> (opcional)<nome_na_maquina> // Para clonar repositório
+
+git checkout -b <nome_do_branch> // Para criar um novo branch
+
+git branch // Mostra os branchs disponíveis
+git checkout <nome_do_branch> // Muda para o branch selecionado
+git branch -D <nome_do_branch> // Para eliminar um branch
+
+git merge <nome_do_branch> // Faz a mesclagem dos branchs
+git rebase testes <nome_do_branch> // Faz o rebase do branch
+
+obs: É melhor utilizar o rebase, o merge é melhor para caso haja um pull request, pois aí sim é preciso verificar que algo foi adicionado e o commit adicional deste metódo funciona bem
+
+git pull --rebase // Faz um pull usando rebase e não perde a ordem cronológica
+
+git stash // Guarda uma modificação, desta forma caso eu crie um novo branch ela não irá para ele porque estará com um status de "ainda em trabalho"
+
+git stash apply // Vai aplicar as mudanças e deixar o arquivo pronto para Commit
+
+git stash list // Mostra a lista com todos os stash em operação
+
+git stash clear // Limpa tudo que estiver no stash
+
+git config --global alias.<alias_que_quero -> ex: s> <comando_escolhido -> ex: status>
+
+git tag -a <anotacao_que_pode_ser_a_versao> -m "<MENSAGEM>"
+
+git push origin master --tags // Para subir as tags
+
+git tag // Ver todas as tags geradas
+
+git tag -D <nome_da_tag> // Para eliminar uma tag
+
+git push origin :<tag_a_ser_apagada> // Para apagar uma tag remota
+git push origin :<branch_a_ser_apagado> // Para apagar uma branch remoto
+
+git revert <id_commit> // Reverte o commit causador de problema ou que eu queria voltar. Porém, não perde do histórico as mudanças feitas, pois ele não apaga o commit
+
+Mais informações sobre o .gitignore: https://git-scm.com/docs/gitignore
+Templates .gitignore: https://github.com/github/gitignore
+
